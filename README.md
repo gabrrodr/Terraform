@@ -36,3 +36,44 @@ Since a default value is mandatory it either prompts you to enter a value or giv
 
 When you give the user power to change code through variables you need to establish a set of rules applied through validations because the code also only works within a set of rules. You dont want it to break or for the user/developer to not understand what is filing. validations give you a sense of where the issues are when something regarding variables goes wrong because of the error messages.
 
+
+I Then went into Outputs, Locals and Data sources.
+
+I defined The outputs i wanted.
+Locals helped me define an expression that i needed it to be reusable.
+Here is where Terraform got really useful for me: Data sources
+
+I tested this with a simple input.txt file that existed already in my repo so that Terraform would read it and give me the content in an output. 
+What made it useful for me is that if you're going into a company that is deploying an app with, for example,  Azure, I wouldnt want to create a new virtual network. The company already has one. And now I know how to retrieve it and deploy my application into it.
+
+While resources create/update/destroy infrastructure, data retrieves. Its read-only.
+
+This example helped me out a lot to see this implemented in a real life scenario:
+
+Imagine youre deploying an Azure Virtual Machine or a Kubernetes cluster, and it needs to live inside a Virtual Network.
+If your team is responsible for creating the VNet from scratch within this specific Terraform project, you define a resource.
+
+```hcl
+resource "azurerm_virtual_network" "main" {
+  name                = "production-vnet"
+  address_space       = ["10.0.0.0/16"]
+  location            = "eastus"
+  resource_group_name = "rg-networking"
+}
+```
+
+If they already created the Virtual Network in a separate Terraform project or directly in the Azure Portal, you just need to reference its ID so your subnets or virtual machines can attach to it
+
+```hcl
+data "azurerm_virtual_network" "existing" {
+  name                = "production-vnet"
+  resource_group_name = "rg-networking"
+}
+
+resource "azurerm_subnet" "internal" {
+  name                 = "internal-subnet"
+  resource_group_name  = "rg-networking"
+  virtual_network_name = data.azurerm_virtual_network.existing.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+```
