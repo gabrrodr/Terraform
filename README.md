@@ -12,3 +12,5 @@ I then added a volume because i wanted to print a simple message and understand 
 Bottom line this was half a day well spent!!
 
 <img width="681" height="395" alt="imagen" src="https://github.com/user-attachments/assets/a7079948-249b-4786-98bd-ad3df9e19327" />
+
+
