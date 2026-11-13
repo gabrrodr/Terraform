@@ -1,4 +1,4 @@
-# cloud-engineering day to day diary
+# Terraform day to day diary
 
 ## Day 1 
 the beginning of my studies for better specialization in cloud engineering
