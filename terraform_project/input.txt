@@ -1,0 +1,5 @@
+Welcome to the Multi-Environment File Provisioner!
+
+This content comes from input.txt.
+Terraform will read this file and use its content
+when generating the environment-specific output file.

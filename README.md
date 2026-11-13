@@ -96,3 +96,30 @@ The terraform_2/modules/text_files is my first reusable module
 Terraform module architecture
 
 ![alt text](image-1.png)
+
+
+What is a Terraform variable?
+
+
+
+What is the difference between a variable and a local?
+
+
+
+What is an output?
+
+
+
+What is a data source?
+
+
+
+What is a Terraform module?
+
+
+
+What is the root module?
+
+
+
+Why are reusable modules important in large organisations?
