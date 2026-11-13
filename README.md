@@ -77,3 +77,22 @@ resource "azurerm_subnet" "internal" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 ```
+Then I applied what I learned to a more realistic work setting.
+Assuming my company has 3 environments:
+- Dev
+- Staging
+- Prod
+
+And each one needs:
+- A Vnet
+- A subnet
+- Security rules
+- some Infrastructure resources
+
+Instead of writing the same Terraform code 3 times I created a module.
+
+The terraform_2/modules/text_files is my first reusable module
+
+Terraform module architecture
+
+![alt text](image-1.png)

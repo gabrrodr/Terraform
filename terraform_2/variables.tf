@@ -1,10 +1,10 @@
-variable "filename" {
+variable "file_name" {
   description = "name of the file to be created"
   type        = string
   default     = "example.txt"
 
   validation {
-    condition     = endswith(var.filename, ".txt")
+    condition     = endswith(var.file_name, ".txt")
     error_message = "Filename must end in .txt"
   }
 }

@@ -12,3 +12,15 @@ output "existing_file_content" {
   description = "Content of the existing file"
   value       = data.local_file.existing_file.content
 }
+
+output "development_file_path" {
+  value = module.development_file.file_path
+}
+
+output "production_file_path" {
+  value = module.production_file.file_path
+}
+
+output "staging_file_path" {
+  value = module.staging_file.file_path
+}
